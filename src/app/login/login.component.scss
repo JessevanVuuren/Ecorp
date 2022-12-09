@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginBox {
+    margin-bottom: 300px;
+    width: 100%;
+    max-width: 450px;
+    background-color: #323259;
+    border-radius: 10px;
+}
+
+.formContainer {
+    padding: 30px 20px 10px 20px;
+
+}
+
+.inputField {
+    margin-bottom: 20px;
+}
+
+.imgLogo {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 20px;
+}
+
+.buttonHolder {
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnRegister {
+    margin-right: 30px;
+}
+
+.inputText {
+    margin: 0px 0px 5px 0px;
+    font-size: 18px;
+}
+
+.errorMSG {
+    height: 20px;
+    margin: 5px 0px 0px 0px;
+    color: red;
+}

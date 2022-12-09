@@ -1,0 +1,33 @@
+<nb-layout>
+  <nb-layout-column>
+
+    <div class="container">
+      <div class="imgHolder">
+
+        <img class="imgLogo" src="../../assets/Ecorp.png" alt="" draggable="false">
+      </div>
+      <div class="loginBox">
+        <div class="formContainer" [nbSpinner]="AwaitLogin">
+
+
+          <form class="formHolder" (ngSubmit)="onSubmit()" #form="ngForm">
+
+            <p class="inputText">Email</p>
+            <input name="email" email required class="inputField" nbInput fullWidth [status]="isValidLogin ? 'basic' : 'danger'" placeholder="Username">
+
+            <p class="inputText">Password</p>
+            <input type="password" required nbInput fullWidth [status]="isValidLogin ? 'basic' : 'danger'" placeholder="Password">
+            <p class="errorMSG">{{error}}</p>
+
+            <div class="buttonHolder">
+              <button nbButton outline class="btnRegister" status="info">REGISTER</button>
+              <button nbButton outline status="primary">LOGIN</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </nb-layout-column>
+</nb-layout>
