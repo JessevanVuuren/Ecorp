@@ -1,0 +1,94 @@
+$primary: #a16eff;
+$speed: .5s;
+$aminStyle: ease-out;
+
+@mixin statT {
+    margin: 0px;
+}
+
+.container {
+    width: 250px;
+    margin: 20px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid $primary;
+    border-bottom: none;
+    -moz-transition: all $speed $aminStyle;
+    -o-transition: all $speed $aminStyle;
+    -webkit-transition: all $speed $aminStyle;
+    transition: all $speed $aminStyle;
+    &:hover {
+        margin-top: 0px;
+        border-color: yellow;
+    }
+}
+
+.topPanel {
+    border-radius: 4px 4px 0px 0px;
+
+}
+
+.title {
+
+    margin: 0px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    h4 {
+        margin: 0px;
+    }
+}
+
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+
+    table {
+        width: 85%;
+    }
+}
+
+.left {
+
+
+    p {
+        @include statT()
+    }
+}
+.right {
+
+
+    p {
+        @include statT()
+    }
+}
+
+.price {
+    // background-color: #323259;
+    // border: #ffffff 1px solid;
+    border-top: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+
+        span {
+            color: #0095ff;
+        }
+        .pm {
+            font-size: 13px;
+            color: white;
+        }
+    }
+
+    p {
+        margin: 0px;
+    }
+}
+

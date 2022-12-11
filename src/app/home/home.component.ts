@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServerService } from 'src/service/server.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  activeRoute?:string
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private servers: ServerService) {}
+  
+  ngOnInit(): void {
+    this.activeRoute = this.router.url
+  }
 
-  activeRoute = "/"
 
   switchPage(route:string) {
     this.router.navigate([route])

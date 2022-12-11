@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from 'src/service/server.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -11,10 +12,12 @@ export class AppComponent implements OnInit{
 
   name?:string
 
-  constructor(private auth:AuthService) {}
+  constructor(private auth:AuthService, private servers:ServerService) {}
 
   ngOnInit() {
     const token = localStorage.getItem("auth_key")
     if (token) this.name = this.auth.decodeJWTToken(token).name
+
+    this.servers.getAllServers()
   }
 }

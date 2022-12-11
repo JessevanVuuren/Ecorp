@@ -1,1 +1,8 @@
 <p>shop works!</p>
+
+
+<div class="shopList">
+  <div *ngFor="let server of servers">
+    <app-server-card [server]="server"></app-server-card>
+  </div>
+</div>

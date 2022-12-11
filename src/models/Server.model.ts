@@ -5,4 +5,5 @@ export interface Server {
   ram: number;
   cpu: number;
   space: number;
+  stype: string
 }

@@ -5,6 +5,7 @@ $speed: .2s;
     margin: 0px;
     padding: 24px 20px 16px 20px;
     border-bottom: 2px solid transparent;
+    cursor: pointer;
     -moz-transition: all $speed ease-in;
     -o-transition: all $speed ease-in;
     -webkit-transition: all $speed ease-in;
@@ -44,6 +45,7 @@ $speed: .2s;
 
 .activeRoute {
     h5 {
+        cursor: pointer;
         padding: 24px 20px 16px 20px;
         border-bottom: 2px solid $primary;
         margin: 0px;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Server } from 'src/models/Server.model';
-import { HttpService } from 'src/service/http.service';
+import { ServerService } from 'src/service/server.service';
 
 @Component({
   selector: 'app-shop',
@@ -8,15 +9,18 @@ import { HttpService } from 'src/service/http.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit{
+  servers?: Server[]
 
-  constructor (private http:HttpService) {}
-
+  constructor(private serverService: ServerService, private route:ActivatedRoute) {
+    route.params.subscribe(val => {
+      this.servers = serverService.servers
+    });
+  }
 
   ngOnInit(): void {
-    this.http.getData<Server[]>("/api/server").subscribe((data) => {
+    this.serverService.serversSubject.subscribe(data => {
+      this.servers = data
       console.log(data)
     })
   }
-
-
 }
