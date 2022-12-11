@@ -1,11 +1,41 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
+    <div class="mainNav">
+
+      <div class="navHeader">
+        <div class="navContainer">
+          <div class="navLogo">
+            <img class="logoImg" src="../../assets/EcorpSimple.png" alt="">
+          </div>
+
+          <div class="navButtons">
+            <div [ngClass]="activeRoute === '/' ? 'activeRoute' : 'home'" (click)="switchPage('/')">
+              <h5>home</h5>
+            </div>
+            <div [ngClass]="activeRoute === '/shop' ? 'activeRoute' : 'shop'" (click)="switchPage('/shop')">
+              <h5>shop</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="navUser">
+          <div class="">
+            <nb-icon class="shoppingIcon" icon="person-outline" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+            <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" status="warning"  [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+          </div>
+        </div>
+      </div>
+    </div>
   </nb-layout-header>
 
   <nb-layout-column>
-    <router-outlet></router-outlet>
+    <div class="widthGuard">
+    <div class="mainPage">
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </nb-layout-column>
 
   <nb-layout-footer fixed>

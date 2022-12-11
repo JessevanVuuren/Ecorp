@@ -7,7 +7,7 @@ import { JwtToken } from "../models/jwtToken.model";
 
 const BASE_URL = "http://localhost:8080/api"
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService implements CanActivate, CanActivateChild {
   private _isLoggedIn = new BehaviorSubject<boolean>(false)
   isLoggedIn = this._isLoggedIn.asObservable()
@@ -47,6 +47,26 @@ export class AuthService implements CanActivate, CanActivateChild {
     }))
   }
 
+  register(email: string, name: string, pass: string) {
+
+    return this.http.post<AuthResponse>(BASE_URL + "/auth/register", {
+      email: email,
+      password: pass,
+      name: name
+    }).pipe(tap(data => {
+      if (!data.success) return
+      const token = this.decodeJWTToken(data.jwtToken)
+      if (token.defaultPass) {
+        this._changePassword.next(true)
+        this.token = data.jwtToken
+      } else {
+        localStorage.setItem("auth_key", data.jwtToken)
+        this._isLoggedIn.next(true)
+      }
+    }))
+  }
+
+
   decodeJWTToken(token: string): JwtToken {
     const object = JSON.parse(atob(token.split('.')[1]))
     return new JwtToken(object["defaultPass"], object["sub"], object["role"], object["name"], object["iss"], object["id"], object["iat"], object["email"]);
@@ -74,7 +94,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if (this._isLoggedIn.getValue()) return true
     else {
-      this.router.navigate(["/"])
+      this.router.navigate(["/login"])
       return false
     }
   }

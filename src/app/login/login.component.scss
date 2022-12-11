@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    justify-content: center;
     height: 100%;
     width: 100%;
     align-items: center;
@@ -8,7 +7,6 @@
 }
 
 .loginBox {
-    margin-bottom: 300px;
     width: 100%;
     max-width: 450px;
     background-color: #323259;
@@ -51,5 +49,5 @@
 .errorMSG {
     height: 20px;
     margin: 5px 0px 0px 0px;
-    color: red;
+    color: rgb(255, 130, 93);
 }

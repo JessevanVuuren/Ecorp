@@ -1,0 +1,98 @@
+$primary: #a16eff;
+$speed: .2s;
+
+@mixin navButtonsStyle {
+    margin: 0px;
+    padding: 24px 20px 16px 20px;
+    border-bottom: 2px solid transparent;
+    -moz-transition: all $speed ease-in;
+    -o-transition: all $speed ease-in;
+    -webkit-transition: all $speed ease-in;
+    transition: all $speed ease-in;
+    &:hover{
+        padding: 24px 20px 16px 20px;
+        border-bottom: 2px solid $primary;
+        color: #a16eff;
+    }
+}
+
+
+.navHeader {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    justify-content: space-between;
+}
+
+.mainNav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+
+.navContainer {
+    display: flex;
+    align-items: center;
+}
+
+.navButtons {
+    display: flex
+}
+
+.activeRoute {
+    h5 {
+        padding: 24px 20px 16px 20px;
+        border-bottom: 2px solid $primary;
+        margin: 0px;
+        color: $primary
+    }
+}
+
+.home {
+    h5 {
+        @include navButtonsStyle;
+    }    
+}
+
+.shop {
+    h5 {
+        @include navButtonsStyle;
+    }
+}
+
+.navLogo {
+    height: 40px;
+    margin-right: 20%;
+}
+.logoImg {
+    height: 100%;
+}
+
+.navUser {
+    align-items: center;
+    display: flex;
+}
+
+.shoppingIcon {
+    font-size: 40px;
+}
+
+.iconPadding {
+    margin-left: 20px;
+}
+
+.mainPage {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.widthGuard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column
+}
