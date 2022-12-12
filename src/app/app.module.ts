@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ServerCardComponent } from './shop/server-card/server-card.component';
+import { FilterComponent } from './shop/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { ServerCardComponent } from './shop/server-card/server-card.component';
     HomeComponent,
     ShopComponent,
     ShoppingCartComponent,
-    ServerCardComponent
+    ServerCardComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NbInputModule,
     NbIconModule,
+    NbBadgeModule,
     HttpClientModule,
     NbTabsetModule,
     FormsModule,

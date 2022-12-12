@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" (click)="addToShoppingCart()">
   <div class="topPanel">
     <div class="title">
       <h4>{{server?.name}}</h4>
@@ -25,7 +25,7 @@
   <div class="price">
     <div>
       <p><span>$ {{server?.price}}</span> <span class="pm"> p/m</span></p> 
-      <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" status="warning"  [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+      <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" [status]="inShoppingCart ? 'warning' : 'primary'"></nb-icon>
 
     </div>
   </div>

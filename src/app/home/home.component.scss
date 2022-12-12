@@ -20,7 +20,7 @@ $speed: .2s;
 
 .navHeader {
     display: flex;
-    width: 80%;
+    width: 100%;
     max-width: 1000px;
     justify-content: space-between;
 }
@@ -74,6 +74,7 @@ $speed: .2s;
 }
 
 .navUser {
+    justify-content: flex-end;
     align-items: center;
     display: flex;
 }
@@ -88,7 +89,6 @@ $speed: .2s;
 
 .mainPage {
     display: flex;
-    width: 80%;
     max-width: 1000px;
 }
 
@@ -97,4 +97,13 @@ $speed: .2s;
     align-items: center;
     width: 100%;
     flex-direction: column
+}
+
+.cartBadge {
+    position: absolute;
+    height: 65%;
+    transform: rotate(-30deg);
+    margin-top: 10px;
+    margin-right: 20px;
+    z-index: -100
 }

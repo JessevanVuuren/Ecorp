@@ -8,7 +8,7 @@ $aminStyle: ease-out;
 
 .container {
     width: 250px;
-    margin: 20px;
+    margin: 20px 0px 20px 0px;
     border-radius: 10px 10px 0px 0px;
     border: 1px solid $primary;
     border-bottom: none;
@@ -17,8 +17,9 @@ $aminStyle: ease-out;
     -webkit-transition: all $speed $aminStyle;
     transition: all $speed $aminStyle;
     &:hover {
-        margin-top: 0px;
-        border-color: yellow;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        border-color: #0095ff;
     }
 }
 

@@ -12,15 +12,11 @@ export class ShopComponent implements OnInit{
   servers?: Server[]
 
   constructor(private serverService: ServerService, private route:ActivatedRoute) {
-    route.params.subscribe(val => {
-      this.servers = serverService.servers
-    });
   }
 
   ngOnInit(): void {
     this.serverService.serversSubject.subscribe(data => {
       this.servers = data
-      console.log(data)
     })
   }
 }
