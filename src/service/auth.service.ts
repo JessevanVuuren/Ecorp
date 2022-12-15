@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, tap } from "rxjs";
 import { AuthResponse } from "../models/AuthResponse.model";
 import { JwtToken } from "../models/jwtToken.model";
 
-const BASE_URL = "http://localhost:8080/api"
+const BASE_URL = "http://5.199.153.38:443/api"
 
 @Injectable({providedIn: 'root'})
 export class AuthService implements CanActivate, CanActivateChild {

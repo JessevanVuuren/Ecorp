@@ -6,7 +6,7 @@ import { AuthService } from "./auth.service";
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  public url = "http://localhost:8080"
+  public url = "http://5.199.153.38:443"
   AuthKey?:string
   constructor(private http: HttpClient, private auth: AuthService) {
     this.AuthKey = this.auth.token

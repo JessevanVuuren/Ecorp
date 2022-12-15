@@ -1,0 +1,45 @@
+.main {
+    display: flex;
+}
+
+.checkout {
+    width: 300px;
+    
+    
+    h3 {
+        margin: 0px 0px 20px 0px;
+    }
+
+    h4 {
+        margin: 0px 0px 20px 0px;
+    }
+
+    table {
+        width: 100%;
+
+        td {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.buttonContainer {
+    margin-top: 20px;
+}
+
+.totalPrice {
+    padding-top: 10px;
+    padding-bottom: 0px !important;
+    color: #ffaa00;
+}
+
+.userInfo {
+    background-color: #323259;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.items {
+    flex: 1;
+}

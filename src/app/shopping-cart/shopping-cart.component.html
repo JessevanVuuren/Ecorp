@@ -1,1 +1,59 @@
-<p>shopping-cart works!</p>
+<div class="main">
+
+
+  <div class="items">
+    <div class="itemsList" *ngFor="let item of items">
+      <app-cart-item [item]="item"></app-cart-item>
+    </div>
+  </div>
+
+
+  <div class="checkout">
+    <div class="userInfo">
+      <div class="block">
+
+        <h3>Total Amount</h3>
+
+        <table>
+          <tr>
+            <td>Price:</td>
+            <td>$ {{total}}</td>
+          </tr>
+          <tr>
+            <td>Setup</td>
+            <td>$ {{service}}</td>
+          </tr>
+          <tr>
+            <td>VAT(15%):</td>
+            <td>$ {{(total / 100) * 15}}</td>
+          </tr>
+
+          <tr>
+            <td class="totalPrice">Monthly</td>
+            <td class="totalPrice">$ {{total}}</td>
+          </tr>
+        </table>
+
+        <div class="buttonContainer">
+          <button nbButton outline fullWidth status="success">checkout</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="userInfo">
+      <div class="block">
+        <h4>Apply promo code</h4>
+
+        <input name="code" class="inputField" nbInput fullWidth status="basic" placeholder="promo code">
+        <div style="width: 100%;display: flex;justify-content: space-between;margin-top: 10px;">
+          <button nbButton outline status="danger">Delete</button>
+          <button nbButton outline status="primary">Apply</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

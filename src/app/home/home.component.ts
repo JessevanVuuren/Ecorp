@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
   switchPage(route:string) {
     this.router.navigate([route])
     this.activeRoute = route

@@ -5,6 +5,7 @@ import { HttpService } from "./http.service";
 
 @Injectable({providedIn: 'root'})
 export class ServerService {
+  public servers?: Server[]
 
   public serversSubject = new BehaviorSubject<Server[]>([])
 
@@ -13,6 +14,7 @@ export class ServerService {
   getAllServers() {
     this.http.getData<Server>("/api/server").subscribe((data) => {
       this.serversSubject.next(data)
+      this.servers = data
     })
   }
 }

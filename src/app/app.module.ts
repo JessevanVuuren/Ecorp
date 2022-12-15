@@ -14,6 +14,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ServerCardComponent } from './shop/server-card/server-card.component';
 import { FilterComponent } from './shop/filter/filter.component';
+import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilterComponent } from './shop/filter/filter.component';
     ShopComponent,
     ShoppingCartComponent,
     ServerCardComponent,
-    FilterComponent
+    FilterComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,

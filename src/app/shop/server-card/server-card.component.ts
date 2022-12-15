@@ -31,8 +31,14 @@ export class ServerCardComponent implements OnInit{
   addToShoppingCart() {
     this.inShoppingCart = false
     const cart: Cart = {
-      "amount": 1,
-      "serverID": this.server?.id 
+      amount:1,
+      serverID: this.server?.id,
+      name: this.server?.name,
+      price: this.server?.price,
+      ram: this.server?.ram,
+      cpu: this.server?.cpu,
+      space: this.server?.space,
+      stype: this.server?.stype
     }
     this.cart.addOrRemoveItem(cart)
   }
