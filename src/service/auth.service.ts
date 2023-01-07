@@ -4,8 +4,10 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterSt
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { AuthResponse } from "../models/AuthResponse.model";
 import { JwtToken } from "../models/jwtToken.model";
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = "http://5.199.153.38:443/api"
+
+const BASE_URL = environment.apiURL + "/api"
 
 @Injectable({providedIn: 'root'})
 export class AuthService implements CanActivate, CanActivateChild {

@@ -2,11 +2,12 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  public url = "http://5.199.153.38:443"
+  public url = environment.apiURL
   AuthKey?:string
   constructor(private http: HttpClient, private auth: AuthService) {
     this.AuthKey = this.auth.token

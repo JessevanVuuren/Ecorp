@@ -15,6 +15,8 @@ export class ShopComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.serverService.getAllServers()
+
     this.serverService.serversSubject.subscribe(data => {
       this.servers = data
     })

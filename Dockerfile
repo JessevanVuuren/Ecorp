@@ -2,7 +2,7 @@
 
 
 # for in package.json
-# "docker": "docker build -t ng-notes .",
+# "docker": "docker build -t ecorp .",
 # "ng-notes": "docker run -p 4200:80 ng-notes"
 
 # build docker -> $ docker build -t ecorp .
