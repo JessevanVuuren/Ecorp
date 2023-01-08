@@ -1,39 +1,93 @@
-.page {
-
-}
-
-
 .slogun {
-    margin-top: -120px;
-    margin-left: 10px;
+  margin-top: -120px;
+  margin-left: 10px;
+  margin-bottom: 40px;
 }
 
-.aboutus {
-    display: flex;
-    margin-top: 60px;
+.textBlock {
+  display: flex;
+  margin-bottom: 60px;
 
-    h5 {
-        color: #a16eff;
-        margin: 0px;
-    }
-    
-    p {
-        margin: 0px;
-        font-size: 17px;
-        line-height: 22px;
-    }
+  h5 {
+    color: #a16eff;
+    margin: 0px;
+  }
+
+  p {
+    margin: 0px;
+    font-size: 17px;
+    line-height: 22px;
+  }
 }
 
-.manserver {
-    img {
-        border-radius: 10px;
-    }
+.textBlockImg {
+  img {
+    border-radius: 10px;
+  }
 }
-
 
 .bannerholder {
+  img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .slogun {
+    h1 {
+      font-size: 25px;
+    }
+  }
+
+  .textBlock {
+    h5 {
+      margin: 0px;
+    }
+
+    p {
+      margin: 0px;
+      font-size: 17px;
+      line-height: 22px;
+    }
 
     img {
-        width: 100%;
+      height: 200px !important;
     }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .textBlock {
+    display: block;
+
+    .textBlockImg {
+      img {
+        margin: 10px auto !important;
+        display: flex;
+      }
+    }
+  }
+
+  .block_b {
+    display: flex;
+    flex-flow: column;
+
+    .textBlockImg {
+      order: 2;
+    }
+    .textBlockText {
+      order: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .slogun {
+    margin-top: -50px;
+    margin-left: 0px;
+    h1 {
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
 }

@@ -1,109 +1,149 @@
 $primary: #a16eff;
-$speed: .2s;
+$speed: 0.2s;
 
 @mixin navButtonsStyle {
-    margin: 0px;
+  margin: 0px;
+  padding: 24px 20px 16px 20px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  -moz-transition: all $speed ease-in;
+  -o-transition: all $speed ease-in;
+  -webkit-transition: all $speed ease-in;
+  transition: all $speed ease-in;
+  &:hover {
     padding: 24px 20px 16px 20px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    -moz-transition: all $speed ease-in;
-    -o-transition: all $speed ease-in;
-    -webkit-transition: all $speed ease-in;
-    transition: all $speed ease-in;
-    &:hover{
-        padding: 24px 20px 16px 20px;
-        border-bottom: 2px solid $primary;
-        color: #a16eff;
-    }
+    border-bottom: 2px solid $primary;
+    color: #a16eff;
+  }
 }
 
-
 .navHeader {
-    display: flex;
-    width: 100%;
-    max-width: 1000px;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: space-between;
 }
 
 .mainNav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 
-
-
 .navContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navButtons {
-    display: flex
+  display: flex;
 }
 
 .activeRoute {
-    h5 {
-        cursor: pointer;
-        padding: 24px 20px 16px 20px;
-        border-bottom: 2px solid $primary;
-        margin: 0px;
-        color: $primary
-    }
+  h5 {
+    cursor: pointer;
+    padding: 24px 20px 16px 20px;
+    border-bottom: 2px solid $primary;
+    margin: 0px;
+    color: $primary;
+  }
 }
 
 .home {
-    h5 {
-        @include navButtonsStyle;
-    }    
+  h5 {
+    @include navButtonsStyle;
+  }
 }
 
 .shop {
-    h5 {
-        @include navButtonsStyle;
-    }
+  h5 {
+    @include navButtonsStyle;
+  }
 }
 
 .navLogo {
-    height: 40px;
-    margin-right: 20%;
+  height: 40px;
+  margin-right: 20%;
 }
 .logoImg {
-    height: 100%;
+  height: 100%;
 }
 
 .navUser {
-    justify-content: flex-end;
-    align-items: center;
-    display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
 }
 
 .shoppingIcon {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .iconPadding {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .mainPage {
-    width: 100%;
-    max-width: 1000px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburgerMenu {
+  display: none;
 }
 
 .widthGuard {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    flex-direction: column
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 
 .cartBadge {
+  position: absolute;
+  height: 65%;
+  transform: rotate(-30deg);
+  margin-top: 10px;
+  margin-right: 20px;
+  z-index: -100;
+}
+
+@media only screen and (max-width: 500px) {
+  .navButtons {
+    display: none;
+  }
+
+  .hamburgerMenu {
+    width: 100%;
+    margin-left: -20px;
+    margin-top: 95px;
+    display: flex;
+    background-color: #323259;
     position: absolute;
-    height: 65%;
-    transform: rotate(-30deg);
-    margin-top: 10px;
-    margin-right: 20px;
-    z-index: -100
+    justify-content: space-around;
+
+    h5 {
+      padding: 0px;
+
+      &:hover {
+        padding: 0px;
+      }
+    }
+
+    div {
+        width: 100%;
+        text-align: center;
+    }
+  }
+
+  .hamburger {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
 }

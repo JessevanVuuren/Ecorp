@@ -1,45 +1,60 @@
 .main {
-    display: flex;
+  display: flex;
 }
 
 .checkout {
-    width: 300px;
-    
-    
-    h3 {
-        margin: 0px 0px 20px 0px;
-    }
+  width: 300px;
 
-    h4 {
-        margin: 0px 0px 20px 0px;
-    }
+  h3 {
+    margin: 0px 0px 20px 0px;
+  }
 
-    table {
-        width: 100%;
+  h4 {
+    margin: 0px 0px 20px 0px;
+  }
 
-        td {
-            padding-bottom: 10px;
-        }
+  table {
+    width: 100%;
+
+    td {
+      padding-bottom: 10px;
     }
+  }
 }
 
 .buttonContainer {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .totalPrice {
-    padding-top: 10px;
-    padding-bottom: 0px !important;
-    color: #ffaa00;
+  padding-top: 10px;
+  padding-bottom: 0px !important;
+  color: #ffaa00;
 }
 
 .userInfo {
-    background-color: #323259;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  background-color: #323259;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .items {
-    flex: 1;
+  flex: 1;
+}
+
+@media only screen and (max-width: 650px) {
+  .main {
+    display: flex;
+    flex-flow: column;
+
+    .items {
+      order: 2;
+    }
+
+    .checkout {
+        order: 1;
+        width: 100%;
+    }
+  }
 }
