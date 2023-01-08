@@ -19,6 +19,9 @@
             <div [ngClass]="activeRoute === '/shop' ? 'activeRoute' : 'shop'" (click)="switchPage('/shop')">
               <h5>shop</h5>
             </div>
+            <div *ngIf="showAdminPage" [ngClass]="activeRoute === '/admin' ? 'activeRoute' : 'admin'" (click)="switchPage('/admin')">
+              <h5>admin</h5>
+            </div>
           </div>
         </div>
 
@@ -38,12 +41,15 @@
     </div>
 
     <div class="hamburgerMenu" *ngIf="showHamburger">
-        <div [ngClass]="activeRoute === '/' ? 'activeRoute' : 'home'" (click)="switchPage('/')">
-          <h5>home</h5>
-        </div>
-        <div [ngClass]="activeRoute === '/shop' ? 'activeRoute' : 'shop'" (click)="switchPage('/shop')">
-          <h5>shop</h5>
-        </div>
+      <div [ngClass]="activeRoute === '/' ? 'activeRoute' : 'home'" (click)="switchPage('/')">
+        <h5>home</h5>
+      </div>
+      <div [ngClass]="activeRoute === '/shop' ? 'activeRoute' : 'shop'" (click)="switchPage('/shop')">
+        <h5>shop</h5>
+      </div>
+      <div *ngIf="showAdminPage" [ngClass]="activeRoute === '/admin' ? 'activeRoute' : 'admin'" (click)="switchPage('/admin')">
+        <h5>admin</h5>
+      </div>
     </div>
 
   </nb-layout-header>

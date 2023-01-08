@@ -61,10 +61,15 @@ $speed: 0.2s;
     @include navButtonsStyle;
   }
 }
+.admin {
+  h5 {
+    @include navButtonsStyle;
+  }
+}
 
 .navLogo {
   height: 40px;
-  margin-right: 20%;
+  margin-right: 3vw;
 }
 .logoImg {
   height: 100%;
@@ -113,7 +118,7 @@ $speed: 0.2s;
   z-index: -100;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .navButtons {
     display: none;
   }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ShopComponent } from './shop/shop.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate:[AuthService], canActivateChild:[AuthService], children: [
   // { path: '', component: HomeComponent, children: [
     { path: 'shop', component: ShopComponent},
-    { path: 'shopping-cart', component: ShoppingCartComponent},
+    { path: 'shopping-cart', component: ShoppingCartComponent },
+    { path: 'admin', component: AdminComponent, canActivate:[AuthService] },
   ] },
 
   { path: 'login', component: LoginComponent},

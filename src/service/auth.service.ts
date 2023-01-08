@@ -18,7 +18,8 @@ export class AuthService implements CanActivate, CanActivateChild {
   changePassword = this._changePassword.asObservable()
 
   token = ""
-
+  userIsAdmin = new BehaviorSubject<boolean>(false)
+  isLocalAdmin = false
 
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
@@ -30,6 +31,26 @@ export class AuthService implements CanActivate, CanActivateChild {
     return !!localStorage.getItem("auth_key")
   }
 
+  checkForAdmin(tokenS:string) {
+    const token = this.decodeJWTToken(tokenS)
+    console.log(token)
+    if (token.role === "ADMIN") {
+      this.userIsAdmin.next(true)
+      this.isLocalAdmin = true
+    }
+    else {
+      this.userIsAdmin.next(false)
+      this.isLocalAdmin = false
+    }
+  }
+
+  getToken(): string {
+    if (this.checkForKey()) {
+      return localStorage.getItem("auth_key")
+    }
+    return ""
+  }
+
 
   login(email: string, pass: string) {
 
@@ -39,6 +60,7 @@ export class AuthService implements CanActivate, CanActivateChild {
     }).pipe(tap(data => {
       if (!data.success) return
       const token = this.decodeJWTToken(data.jwtToken)
+      this.checkForAdmin(data.jwtToken)
       if (token.defaultPass) {
         this._changePassword.next(true)
         this.token = data.jwtToken
@@ -58,6 +80,7 @@ export class AuthService implements CanActivate, CanActivateChild {
     }).pipe(tap(data => {
       if (!data.success) return
       const token = this.decodeJWTToken(data.jwtToken)
+      this.checkForAdmin(data.jwtToken)
       if (token.defaultPass) {
         this._changePassword.next(true)
         this.token = data.jwtToken
@@ -94,11 +117,20 @@ export class AuthService implements CanActivate, CanActivateChild {
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if (this._isLoggedIn.getValue()) return true
+    if (this._isLoggedIn.getValue()) {
+      if (route.url[0] && route.url[0].path === "admin") {
+        if (!this.isLocalAdmin) {
+          this.router.navigate(["/login"])
+          return false
+        }
+      }
+      return true
+    }
     else {
       this.router.navigate(["/login"])
       return false
     }
+
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {

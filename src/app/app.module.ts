@@ -16,6 +16,7 @@ import { ServerCardComponent } from './shop/server-card/server-card.component';
 import { FilterComponent } from './shop/filter/filter.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 import { BannerComponent } from './banner/banner.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BannerComponent } from './banner/banner.component';
     FilterComponent,
     CartItemComponent,
     BannerComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
