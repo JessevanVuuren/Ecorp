@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, ViewChild, EventEmitter } from '@angular/core'
 
 @Component({
   selector: 'app-filter',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
+
+  @ViewChild('autoInput') input: Event
+
+
+  @Output("searchQuery") parentFun: EventEmitter<any> = new EventEmitter();
+
+  updateText() {
+    this.parentFun.emit(this.input)
+  }
 
 }

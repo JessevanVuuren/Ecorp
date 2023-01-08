@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Subject, timestamp } from "rxjs";
+import { BehaviorSubject, map, Subject, timestamp } from "rxjs";
 import { Cart } from "src/models/Cart.model";
 
 
@@ -46,6 +46,17 @@ export class CartService {
       this.removedItem.next(item)
     }
     else items.push(item)
+    this.saveItems(items)
+  }
+
+  setCartAmount(item:Cart, amount:number) {
+    let items = this.getItems()
+    console.log(amount)
+    items.map((cart:Cart, index:number) => {
+      if (item.serverID === cart.serverID) {
+        cart.amount = amount
+      }
+    })
     this.saveItems(items)
   }
 }

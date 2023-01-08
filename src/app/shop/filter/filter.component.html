@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="sidebar">
-    <h6>Apply filter</h6>
-    <div class="priceFilter">
-    </div>
-  </div> 
+  <nb-form-field>
+    <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+    <input #autoInput placeholder="Search..." type="text" nbInput fullWidth shape="round" (input)="updateText()">
+  </nb-form-field>
+
+
 </div>

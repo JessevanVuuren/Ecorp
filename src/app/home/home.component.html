@@ -18,11 +18,13 @@
             </div>
           </div>
         </div>
-        
+
+
         <div class="navUser">
           <div class="">
             <nb-icon class="shoppingIcon" icon="person-outline" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-            <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" status="warning" (click)="switchPage('/shopping-cart')" [options]="{ animation: { type: 'pulse' } }">
+            <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" status="warning"
+              (click)="switchPage('/shopping-cart')" [options]="{ animation: { type: 'pulse' } }">
             </nb-icon>
           </div>
           <div *ngIf="amountShoppingCart > 0" class="cartBadge">
@@ -35,15 +37,23 @@
 
   <nb-layout-column>
     <div class="widthGuard">
-    <div class="mainPage">
+      <div class="mainPage">
+        
+        <div *ngIf="activeRoute === '/'">
+          <app-banner></app-banner>
+        </div>
 
-        <router-outlet></router-outlet>
+
+        <div *ngIf="activeRoute !== '/'">
+          <router-outlet></router-outlet>
+        </div>
+
       </div>
     </div>
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+    <!-- Insert footer here -->
   </nb-layout-footer>
 
 </nb-layout>

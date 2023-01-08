@@ -1,0 +1,38 @@
+
+.main {
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+        align-items: center;
+
+    h5 {
+        margin: 0px;
+    }
+    margin: 0px 10px 0px 10px;
+}
+
+.holder {
+    background-color: #323259;
+    margin: 0px 10px 10px 0px;
+    border-radius: 5px;
+}
+
+.amountContainer {
+    display: flex;
+    align-items: center;
+
+    .arrow {
+        font-size: 30px;
+        color: #0095ff;
+    }
+
+    .can {
+        font-size: 25px;
+        margin: 0px 20px 0px 10px;
+            color: #ff3d71;
+    }
+}
+
+.amountNumber {
+    margin: 0px;
+}

@@ -1,1 +1,44 @@
-<p>{{item?.name}}</p>
+<div class="holder">
+
+
+  <div class="main">
+
+
+    <h5>{{item.name}}</h5>
+
+
+    <div class="amountContainer" onselectstart="return false">
+      <nb-icon class="arrow" icon="arrow-ios-back-outline" (click)="amountDown()"></nb-icon>
+      <p class="amountNumber">{{amount}}</p>
+      <nb-icon class="arrow" icon="arrow-ios-forward-outline" (click)="amountUp()"></nb-icon>
+      
+      <nb-icon class="can" icon="trash-2-outline" (click)="removeProduct()"></nb-icon>
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- amount: number
+serverID: number
+name: string
+price: number
+ram: number
+cpu: number
+space: number
+stype: string -->

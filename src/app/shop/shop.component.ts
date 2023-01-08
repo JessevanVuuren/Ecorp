@@ -9,9 +9,14 @@ import { ServerService } from 'src/service/server.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit{
-  servers?: Server[]
+  servers: Server[]
+  result: Server[]
+  
+  constructor(private serverService: ServerService, private route:ActivatedRoute) { }
 
-  constructor(private serverService: ServerService, private route:ActivatedRoute) {
+
+  updateQuery(text:any) {
+    this.result = this.servers.filter((server: Server) => server.name.toLowerCase().includes(text.nativeElement.value.toLowerCase()))
   }
 
   ngOnInit(): void {
@@ -19,6 +24,7 @@ export class ShopComponent implements OnInit{
 
     this.serverService.serversSubject.subscribe(data => {
       this.servers = data
+      this.result = data
     })
   }
 }

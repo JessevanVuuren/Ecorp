@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule, NbFormFieldModule, NbAutocompleteModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ServerCardComponent } from './shop/server-card/server-card.component';
 import { FilterComponent } from './shop/filter/filter.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,14 @@ import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component
     ServerCardComponent,
     FilterComponent,
     CartItemComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NbInputModule,
+    NbFormFieldModule,
+    NbAutocompleteModule,
     NbIconModule,
     NbBadgeModule,
     HttpClientModule,

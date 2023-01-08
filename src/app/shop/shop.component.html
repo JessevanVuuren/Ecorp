@@ -1,10 +1,10 @@
 <div class="container">
-  <!-- <div class="sidebar">
-    <app-filter></app-filter>
-  </div> -->
+  <div class="topBar">
+    <app-filter (searchQuery)="updateQuery($event)"></app-filter>
+  </div>
 
   <div class="shopList">
-    <div *ngFor="let server of servers">
+    <div *ngFor="let server of result">
       <app-server-card [server]="server"></app-server-card>
     </div>
   </div>
