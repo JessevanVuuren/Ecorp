@@ -1,0 +1,62 @@
+.mainHolder {
+    display: flex;
+    justify-content: space-between;
+}
+.previewHolder {
+    width: 50%;
+}
+
+.cartHolder {
+        display: flex;
+    justify-content: center;
+}
+
+.previewTitle {
+        display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.buttonHolder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.serverHolder {
+    width: 100%;
+}
+
+.formHolder {
+    width: 50%;
+}
+
+.inputText {
+  margin: 0px 0px 5px 0px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #0095ff;
+}
+
+.inputField {
+  margin-bottom: 25px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .mainHolder {
+        display: block
+    }
+
+    .formHolder {
+        width: 100%;
+    }
+    .previewHolder {
+        width: 100%;
+
+    }
+
+    .previewHolder {
+        display: block;
+    }
+
+}

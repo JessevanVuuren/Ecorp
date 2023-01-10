@@ -1,1 +1,60 @@
-<p>admin works!</p>
+<div class="mainHolder">
+
+  <div class="previewHolder">
+    <div>
+
+      <h2 class="previewTitle">Server Preview</h2>
+      <div class="cartHolder">
+
+        <app-server-card [server]="customServer" [demo]="true"></app-server-card>
+      </div>
+      
+
+      <div class="serverHolder" *ngFor="let server of servers">
+        <app-single-server (edit)="editServer($event)" [server]="server"></app-single-server>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="formHolder">
+    <form class="form" (ngSubmit)="onSubmit()" #addNewItemForm="ngForm">
+      <p class="inputText">Name server</p>
+      <input name="name" required class="inputField" nbInput fullWidth [status]="isNameValid ? 'basic' : 'danger'"
+        placeholder="E.g. Super server" [ngModel]="name.value" required #name="ngModel">
+
+      <p class="inputText">CPU's</p>
+      <input name="cpu" required class="inputField" nbInput fullWidth [status]="isCpuValid ? 'basic' : 'danger'"
+        placeholder="Amount of cpu's" [ngModel]="cpu.value" required #cpu="ngModel">
+
+      <p class="inputText">Memory</p>
+      <input name="ram" required class="inputField" nbInput fullWidth [status]="isRamValid ? 'basic' : 'danger'"
+        placeholder="Memory in GB" [ngModel]="ram.value" required #ram="ngModel">
+
+      <p class="inputText">Storage space</p>
+      <input name="storage" required class="inputField" number nbInput fullWidth [status]="isStorageValid ? 'basic' : 'danger'"
+        placeholder="Storage in GB" [ngModel]="storage.value" required #storage="ngModel">
+
+      <p class="inputText">Drive type</p>
+      <nb-select name="type" placeholder="Select storage type" fullWidth class="inputField" [ngModel]="type.value" #type="ngModel">
+        <nb-option value="HHD">HHD</nb-option>
+        <nb-option value="SSD">SSD</nb-option>
+      </nb-select>
+
+
+      <p class="inputText">Price</p>
+      <input name="price" required class="inputField" nbInput fullWidth [status]="isPriceValid ? 'basic' : 'danger'"
+        placeholder="Price of server, p/m" [ngModel]="price.value" required #price="ngModel">
+
+
+
+      <div class="buttonHolder">
+        <button nbButton hero status="primary">CREATE SERVER</button>
+        <button nbButton hero (click)="clear()" type="button" status="danger">CLEAR</button>
+      </div>
+    </form>
+  </div>
+
+
+</div>

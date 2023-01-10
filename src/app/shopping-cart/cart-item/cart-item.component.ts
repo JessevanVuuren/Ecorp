@@ -30,7 +30,6 @@ export class CartItemComponent implements OnInit {
     this.updateAmount()
   }
 
-
   amountDown() {
     if (this.amount <= 1) return
     this.amount += -1

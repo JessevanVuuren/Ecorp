@@ -28,7 +28,7 @@
 
         <div class="navUser">
           <div class="">
-            <!-- <nb-icon class="shoppingIcon" icon="person-outline" [options]="{ animation: { type: 'pulse' } }"></nb-icon> -->
+            <nb-icon (click)="switchPage('/user')" class="shoppingIcon" icon="person-outline" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
             <nb-icon class="shoppingIcon iconPadding" icon="shopping-cart-outline" status="warning"
               (click)="switchPage('/shopping-cart')" [options]="{ animation: { type: 'pulse' } }">
             </nb-icon>

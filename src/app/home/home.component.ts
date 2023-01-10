@@ -21,12 +21,12 @@ export class HomeComponent implements OnInit {
     this.cart.getItems()
 
     this.cart.shoppingCart.subscribe(items => {
-      this.amountShoppingCart = items.length
+      this.amountShoppingCart = 0
+      items.map(e => this.amountShoppingCart += e.amount)
     })
 
     this.auth.userIsAdmin.subscribe((value:boolean) => {
       this.showAdminPage = value
-      console.log(value)
     })
   }
 

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule, NbFormFieldModule, NbAutocompleteModule } from '@nebular/theme';
+import { NbThemeModule, NbSelectModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule, NbFormFieldModule, NbAutocompleteModule, NbSelectComponent } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,8 @@ import { FilterComponent } from './shop/filter/filter.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 import { BannerComponent } from './banner/banner.component';
 import { AdminComponent } from './admin/admin.component';
+import { UserComponent } from './user/user.component';
+import { SingleServerComponent } from './admin/single-server/single-server.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AdminComponent } from './admin/admin.component';
     CartItemComponent,
     BannerComponent,
     AdminComponent,
+    UserComponent,
+    SingleServerComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { AdminComponent } from './admin/admin.component';
     NbAutocompleteModule,
     NbIconModule,
     NbBadgeModule,
+    NbSelectModule,
     HttpClientModule,
     NbTabsetModule,
     FormsModule,

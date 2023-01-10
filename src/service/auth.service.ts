@@ -24,16 +24,17 @@ export class AuthService implements CanActivate, CanActivateChild {
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
     this._isLoggedIn.next(token)
+    
+    if (token) this.checkForAdmin(this.getToken())
   }
 
 
   checkForKey(): boolean {
-    return !!localStorage.getItem("auth_key")
+    return !!localStorage.getItem("crop_key")
   }
 
   checkForAdmin(tokenS:string) {
     const token = this.decodeJWTToken(tokenS)
-    console.log(token)
     if (token.role === "ADMIN") {
       this.userIsAdmin.next(true)
       this.isLocalAdmin = true
@@ -44,9 +45,19 @@ export class AuthService implements CanActivate, CanActivateChild {
     }
   }
 
+  logout() {
+    localStorage.removeItem("crop_key")
+    this.isLocalAdmin = false
+    this._isLoggedIn.next(false)
+    this.userIsAdmin.next(false)
+    this.token = ""
+    setTimeout(() => this.router.navigate(["/login"]), 20)
+  
+  }
+
   getToken(): string {
     if (this.checkForKey()) {
-      return localStorage.getItem("auth_key")
+      return localStorage.getItem("crop_key")
     }
     return ""
   }
@@ -65,7 +76,7 @@ export class AuthService implements CanActivate, CanActivateChild {
         this._changePassword.next(true)
         this.token = data.jwtToken
       } else {
-        localStorage.setItem("auth_key", data.jwtToken)
+        localStorage.setItem("crop_key", data.jwtToken)
         this._isLoggedIn.next(true)
       }
     }))
@@ -85,7 +96,7 @@ export class AuthService implements CanActivate, CanActivateChild {
         this._changePassword.next(true)
         this.token = data.jwtToken
       } else {
-        localStorage.setItem("auth_key", data.jwtToken)
+        localStorage.setItem("crop_key", data.jwtToken)
         this._isLoggedIn.next(true)
       }
     }))
@@ -109,7 +120,7 @@ export class AuthService implements CanActivate, CanActivateChild {
       if (token.defaultPass) {
         this._changePassword.next(true)
       } else {
-        localStorage.setItem("auth_key", data.jwtToken)
+        localStorage.setItem("crop_key", data.jwtToken)
         this._isLoggedIn.next(true)
       }
     }))

@@ -6,8 +6,13 @@ $aminStyle: ease-out;
     margin: 0px;
 }
 
+.gb {
+    color: #fa0;
+    font-size: 12px;
+}
+
 .container {
-    width: 250px;
+    width: 260px;
     margin: 20px 10px 20px 10px;
     border-radius: 10px 10px 0px 0px;
     border: 1px solid $primary;
@@ -74,7 +79,7 @@ $aminStyle: ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    div {
+    .priceContainer {
         display: flex;
         justify-content: space-between;
         width: 80%;
@@ -93,3 +98,10 @@ $aminStyle: ease-out;
     }
 }
 
+.amountShoppingcard {
+    display: flex;
+}
+
+.shoppingIcon {
+    
+}
