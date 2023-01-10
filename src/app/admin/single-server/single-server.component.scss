@@ -21,3 +21,29 @@
 
 .edit {
 }
+
+.popup {
+  background-color: #1b1b38;
+  padding: 10px 10px;
+  width: 250px;
+  border-radius: 10px;
+  h3 {
+justify-content: center;
+    display: flex;
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .yes {
+    margin-left: 20px;
+  }
+}
+
+.buttons {
+  display: flex;
+
+  button {
+    width: 100%;
+  }
+}

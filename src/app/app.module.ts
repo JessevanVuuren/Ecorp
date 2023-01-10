@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbSelectModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule, NbFormFieldModule, NbAutocompleteModule, NbSelectComponent } from '@nebular/theme';
+import { NbThemeModule, NbSelectModule, NbLayoutModule, NbInputModule, NbButtonModule, NbSpinnerModule, NbIconModule, NbTabsetModule, NbBadgeModule, NbFormFieldModule, NbAutocompleteModule, NbSelectComponent, NbDialogModule, NbDialogService } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -45,6 +45,7 @@ import { SingleServerComponent } from './admin/single-server/single-server.compo
     NbBadgeModule,
     NbSelectModule,
     HttpClientModule,
+    NbDialogModule.forRoot(),
     NbTabsetModule,
     FormsModule,
     NbSpinnerModule,
@@ -54,7 +55,7 @@ import { SingleServerComponent } from './admin/single-server/single-server.compo
     NbLayoutModule,
     NbEvaIconsModule
   ],
-  providers: [],
+  providers: [NbDialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

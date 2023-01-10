@@ -3,7 +3,7 @@
   <div class="previewHolder">
     <div>
 
-      <h2 class="previewTitle">Server Preview</h2>
+      <h2 class="previewTitle">{{editServerID !== null ? "Edit server preview" : "New server preview"}}</h2>
       <div class="cartHolder">
 
         <app-server-card [server]="customServer" [demo]="true"></app-server-card>
@@ -37,7 +37,7 @@
         placeholder="Storage in GB" [ngModel]="storage.value" required #storage="ngModel">
 
       <p class="inputText">Drive type</p>
-      <nb-select name="type" placeholder="Select storage type" fullWidth class="inputField" [ngModel]="type.value" #type="ngModel">
+      <nb-select name="type" placeholder="Select storage type" [status]="isTypeValid ? 'basic' : 'danger'" fullWidth class="inputField" [ngModel]="type.value" #type="ngModel">
         <nb-option value="HHD">HHD</nb-option>
         <nb-option value="SSD">SSD</nb-option>
       </nb-select>
@@ -47,10 +47,10 @@
       <input name="price" required class="inputField" nbInput fullWidth [status]="isPriceValid ? 'basic' : 'danger'"
         placeholder="Price of server, p/m" [ngModel]="price.value" required #price="ngModel">
 
-
+      <p>{{error}}</p>
 
       <div class="buttonHolder">
-        <button nbButton hero status="primary">CREATE SERVER</button>
+        <button nbButton hero status="primary">{{editServerID !== null ? "Update server" : "CREATE SERVER"}}</button>
         <button nbButton hero (click)="clear()" type="button" status="danger">CLEAR</button>
       </div>
     </form>

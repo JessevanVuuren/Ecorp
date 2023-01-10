@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NbDialogService } from '@nebular/theme';
 import { Server } from 'src/models/Server.model';
 import { ServerService } from 'src/service/server.service';
 
@@ -14,7 +15,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   customServer: Server
   servers: Server[]
 
-  editServerID:number
+  editServerID: number = null
 
   isNameValid = true
   isCpuValid = true
@@ -40,14 +41,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
           "name": s.name,
           "cpu": s.cpu,
           "ram": s.ram,
-          "type": s.space,
+          "type": s.stype,
           "price": s.price,
           "storage": s.space
         })
-        // this.ngFormLogin.
-        // this.ngFormLogin.
-        // this.ngFormLogin.
-        // this.ngFormLogin.
       }
     })
   }
@@ -72,23 +69,57 @@ export class AdminComponent implements OnInit, AfterViewInit {
     })
   }
 
+  isNumeric(n: any) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
   onSubmit() {
     const cpu = this.ngFormLogin.value.cpu
+    const ram = this.ngFormLogin.value.ram
     const name = this.ngFormLogin.value.name
     const price = this.ngFormLogin.value.price
-    const ram = this.ngFormLogin.value.ram
-    const space = this.ngFormLogin.value.space
-    const stype = this.ngFormLogin.value.stype
+    const space = this.ngFormLogin.value.storage
+    const stype = this.ngFormLogin.value.type
 
-    // if 
+    this.isNameValid = true
+    this.isCpuValid = true
+    this.isRamValid = true
+    this.isStorageValid = true
+    this.isTypeValid = true
+    this.isPriceValid = true
 
+    if (!cpu) this.isCpuValid = false
+    if (!ram) this.isRamValid = false
+    if (!name) this.isNameValid = false
+    if (!price) this.isPriceValid = false
+    if (!space) this.isStorageValid = false
+    if (!stype) this.isTypeValid = false
+  
+    if (!this.isNameValid || !this.isCpuValid || !this.isRamValid || !this.isStorageValid || !this.isTypeValid || !this.isPriceValid) {
+      this.error = "All fields are required"
+      return
+    }
 
-    // isNameValid = true
-    // isCpuValid = true
-    // isRamValid = true
-    // isStorageValid = true
-    // isTypeValid = true
-    // isPriceValid = true
+    const cpuVal = !this.isNumeric(cpu)
+    this.isCpuValid = !cpuVal
+    if (cpuVal) this.error = "Can only contain numbers"
+    
+    const priceVal = !this.isNumeric(price)
+    this.isStorageValid = !priceVal
+    if (cpuVal) this.error = "Can only contain numbers"
+
+    const ramVal = !this.isNumeric(ram)
+    this.isRamValid = !ramVal
+    if (cpuVal) this.error = "Can only contain numbers"
+
+    const spaceVal = !this.isNumeric(space)
+    this.isPriceValid = !spaceVal
+    if (cpuVal) this.error = "Can only contain numbers"
+
+    if (this.isNameValid && this.isCpuValid && this.isRamValid && this.isStorageValid && this.isTypeValid && this.isPriceValid) {
+      this.error = "all is good"
+      return
+    }
   }
 
 }
