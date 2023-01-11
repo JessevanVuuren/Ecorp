@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NbDialogService } from '@nebular/theme';
 import { Server } from 'src/models/Server.model';
+import { HttpService } from 'src/service/http.service';
 import { ServerService } from 'src/service/server.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   isPriceValid = true
   error = ""
 
-  constructor(private ser: ServerService) { }
+  constructor(private ser: ServerService, private http:HttpService) { }
 
   ngOnInit(): void {
     this.ser.getAllServers()
@@ -105,19 +106,26 @@ export class AdminComponent implements OnInit, AfterViewInit {
     if (cpuVal) this.error = "Can only contain numbers"
     
     const priceVal = !this.isNumeric(price)
-    this.isStorageValid = !priceVal
-    if (cpuVal) this.error = "Can only contain numbers"
+    this.isPriceValid = !priceVal
+    if (priceVal) this.error = "Can only contain numbers"
 
     const ramVal = !this.isNumeric(ram)
     this.isRamValid = !ramVal
-    if (cpuVal) this.error = "Can only contain numbers"
+    if (ramVal) this.error = "Can only contain numbers"
 
     const spaceVal = !this.isNumeric(space)
-    this.isPriceValid = !spaceVal
-    if (cpuVal) this.error = "Can only contain numbers"
+    this.isStorageValid = !spaceVal
+    if (spaceVal) this.error = "Can only contain numbers"
 
     if (this.isNameValid && this.isCpuValid && this.isRamValid && this.isStorageValid && this.isTypeValid && this.isPriceValid) {
-      this.error = "all is good"
+      if (this.editServerID) {
+        this.customServer.id = this.editServerID
+        this.http.update<Server>("/api/server/update", this.customServer).subscribe(() => this.ser.getAllServers())
+      } else {
+        this.http.sendData<Server>("/api/server/new", this.customServer).subscribe(() => this.ser.getAllServers())
+      }
+
+      this.clear()
       return
     }
   }

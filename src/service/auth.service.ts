@@ -25,7 +25,10 @@ export class AuthService implements CanActivate, CanActivateChild {
     const token = this.checkForKey()
     this._isLoggedIn.next(token)
     
-    if (token) this.checkForAdmin(this.getToken())
+    if (token) {
+      this.token = this.getToken()
+      this.checkForAdmin(this.token)
+    }
   }
 
 

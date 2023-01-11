@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   public url = environment.apiURL
-  AuthKey?:string
+  AuthKey?: string
   constructor(private http: HttpClient, private auth: AuthService) {
     this.AuthKey = this.auth.token
-   }
+  }
 
   getHeaders(): HttpHeaders {
     return new HttpHeaders()
@@ -32,5 +32,13 @@ export class HttpService {
 
   public sendData<T>(path: string, data: any): Observable<T> {
     return this.http.post<T>(this.url + path, data, { 'headers': this.getHeaders() })
+  }
+
+  public update<T>(path: string, data: any): Observable<T> {
+    return this.http.put<T>(this.url + path, data, { "headers": this.getHeaders() })
+  }
+
+  public delete<T>(path: string, id: number): Observable<T> {
+    return this.http.delete<T>(this.url + path + "/" + id, { "headers": this.getHeaders() })
   }
 }
