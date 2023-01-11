@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtToken } from 'src/models/jwtToken.model';
+import { Orders } from 'src/models/Orders';
 import { AuthService } from 'src/service/auth.service';
+import { HttpService } from 'src/service/http.service';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +11,14 @@ import { AuthService } from 'src/service/auth.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
-
+  orders: Orders[]
   userData: JwtToken
+  
+  constructor(private auth: AuthService, private http: HttpService) { }
 
   ngOnInit(): void {
+    const id = this.auth.decodeJWTToken(this.auth.getToken()).id
+    this.http.getData<Orders>("/api/order/" + id).subscribe(order => this.orders = order)
     this.userData = this.auth.decodeJWTToken(this.auth.getToken())
   }
 

@@ -19,6 +19,9 @@ import { BannerComponent } from './banner/banner.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { SingleServerComponent } from './admin/single-server/single-server.component';
+import { SingleOrderComponent } from './user/single-order/single-order.component';
+import { SinglePromoComponent } from './admin/single-promo/single-promo.component';
+import { SingleUserComponent } from './admin/single-user/single-user.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { SingleServerComponent } from './admin/single-server/single-server.compo
     AdminComponent,
     UserComponent,
     SingleServerComponent,
+    SingleOrderComponent,
+    SinglePromoComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,

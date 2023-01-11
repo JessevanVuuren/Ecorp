@@ -8,12 +8,12 @@
 
         <app-server-card [server]="customServer" [demo]="true"></app-server-card>
       </div>
-      
+
 
       <div class="serverHolder" *ngFor="let server of servers">
         <app-single-server (edit)="editServer($event)" [server]="server"></app-single-server>
       </div>
-      
+
     </div>
   </div>
 
@@ -33,11 +33,13 @@
         placeholder="Memory in GB" [ngModel]="ram.value" required #ram="ngModel">
 
       <p class="inputText">Storage space</p>
-      <input name="storage" required class="inputField" number nbInput fullWidth [status]="isStorageValid ? 'basic' : 'danger'"
-        placeholder="Storage in GB" [ngModel]="storage.value" required #storage="ngModel">
+      <input name="storage" required class="inputField" number nbInput fullWidth
+        [status]="isStorageValid ? 'basic' : 'danger'" placeholder="Storage in GB" [ngModel]="storage.value" required
+        #storage="ngModel">
 
       <p class="inputText">Drive type</p>
-      <nb-select name="type" placeholder="Select storage type" [status]="isTypeValid ? 'basic' : 'danger'" fullWidth class="inputField" [ngModel]="type.value" #type="ngModel">
+      <nb-select name="type" placeholder="Select storage type" [status]="isTypeValid ? 'basic' : 'danger'" fullWidth
+        class="inputField" [ngModel]="type.value" #type="ngModel">
         <nb-option value="HHD">HHD</nb-option>
         <nb-option value="SSD">SSD</nb-option>
       </nb-select>
@@ -55,6 +57,29 @@
       </div>
     </form>
   </div>
+</div>
+
+<div class="extraConf">
+
+  <div class="promoCodes">
+
+    <h3>Promos</h3>
+
+    <div *ngFor="let promo of promoCode">
+      <app-single-promo [promoCode]="promo"></app-single-promo>
+    </div>
+
+    <h5>Make new promo</h5>
+    <app-single-promo [make]="true"></app-single-promo>
+  </div>
 
 
+  <div class="users">
+
+    <h3>Users</h3>
+
+    <div *ngFor="let user of users">
+      <app-single-user [user]="user"></app-single-user>
+    </div>
+  </div>
 </div>

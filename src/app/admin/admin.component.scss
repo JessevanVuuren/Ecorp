@@ -1,33 +1,33 @@
 .mainHolder {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .previewHolder {
-    width: 50%;
+  width: 50%;
 }
 
 .cartHolder {
-        display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .previewTitle {
-        display: flex;
-    justify-content: center;
-    margin: 0px;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
 }
 
 .buttonHolder {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .serverHolder {
-    width: 100%;
+  width: 100%;
 }
 
 .formHolder {
-    width: 50%;
+  width: 50%;
 }
 
 .inputText {
@@ -41,22 +41,59 @@
   margin-bottom: 25px;
 }
 
+.extraConf {
+  display: flex;
+  justify-content: space-between;
+
+  .promoCodes {
+    width: 100%;
+    h5 {
+      margin: 40px 0px 0px 0px;
+    }
+
+    h3 {
+      margin: 20px 0px 10px 0px;
+    }
+  }
+  .users {
+    width: 100%;
+
+    h3 {
+      margin: 20px 0px 10px 0px;
+    }
+  }
+}
 
 @media only screen and (max-width: 600px) {
-    .mainHolder {
-        display: block
+  .mainHolder {
+    display: block;
+  }
+  .promoCodes {
+    h5 {
+      margin: 20px 0px 0px 0px !important;
     }
 
-    .formHolder {
-        width: 100%;
+    h3 {
+      margin: 50px 0px 10px 0px !important;
     }
-    .previewHolder {
-        width: 100%;
+  }
 
-    }
+  .users {
+    margin-top: 50px;
+  }
 
-    .previewHolder {
-        display: block;
-    }
+  .extraConf {
+    display: block;
+  }
 
+  .formHolder {
+    width: 100%;
+  }
+  .previewHolder {
+    width: 100%;
+  }
+
+  .previewHolder {
+    display: block;
+  }
 }

@@ -9,7 +9,9 @@ export class CartService {
   removedItem = new Subject<Cart>
   currentList?:Cart[]
 
-  constructor() { }
+  constructor() {
+    this.getItems()
+  }
 
   getItems(): Cart[] {
     let items: Cart[] = []
@@ -22,6 +24,12 @@ export class CartService {
       this.setItems(items)
     }
     return items
+  }
+
+  clearCart() {
+    localStorage.removeItem("cart")
+    this.shoppingCart.next([])
+    this.currentList = []
   }
 
   setItems(carts: Cart[]) {

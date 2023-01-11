@@ -1,0 +1,53 @@
+<div class="holder">
+
+  <div class="main">
+    <p class="name">{{user.name}}</p>
+
+
+
+    <ng-template #dialog let-data let-ref="dialogRef">
+      <div class="popup">
+
+        <h3>Confirm delete</h3>
+        <div class="buttons">
+          <button nbButton outline fullWidth status="info" (click)="ref.close()">NO</button>
+          <button nbButton outline fullWidth status="warning" (click)="deleteThis();ref.close()"
+            class="yes">YES</button>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="icons" *ngIf="user.role === 'USER'">
+      <nb-icon class="icon edit" (click)="editThis()" icon="edit-outline"
+        [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+      <nb-icon class="icon remove" (click)="sureDelete(dialog)" icon="trash-2-outline"
+        [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+    </div>
+
+    <div class="icons" *ngIf="user.role === 'ADMIN'">
+      <p class="admin">ADMIN</p>
+    </div>
+
+  </div>
+
+  <div class="ediHolder" *ngIf="doEdit && user.role === 'USER'">
+    <form class="form" (ngSubmit)="onSubmit()" #editPromo="ngForm">
+
+      <div class="inputs">
+        <nb-select name="role" fullWidth class="inputField" selected="USER" [ngModel]="role.value" #role="ngModel">
+          <nb-option value="ADMIN">ADMIN</nb-option>
+          <nb-option value="USER">USER</nb-option>
+        </nb-select>
+
+        <div class="buttonHolder">
+          <button nbButton outline status="primary" class="update">Update</button>
+          <button nbButton outline (click)="clear()" type="button" status="danger">Clear</button>
+        </div>
+      </div>
+    </form>
+
+
+
+  </div>
+
+</div>

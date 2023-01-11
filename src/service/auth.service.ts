@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 
 const BASE_URL = environment.apiURL + "/api"
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthService implements CanActivate, CanActivateChild {
   private _isLoggedIn = new BehaviorSubject<boolean>(false)
   isLoggedIn = this._isLoggedIn.asObservable()
@@ -24,7 +24,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
     this._isLoggedIn.next(token)
-    
+
     if (token) {
       this.token = this.getToken()
       this.checkForAdmin(this.token)
@@ -32,11 +32,16 @@ export class AuthService implements CanActivate, CanActivateChild {
   }
 
 
+  getID(): number {
+    return this.decodeJWTToken(this.getToken()).id
+  }
+
+
   checkForKey(): boolean {
     return !!localStorage.getItem("crop_key")
   }
 
-  checkForAdmin(tokenS:string) {
+  checkForAdmin(tokenS: string) {
     const token = this.decodeJWTToken(tokenS)
     if (token.role === "ADMIN") {
       this.userIsAdmin.next(true)
@@ -55,7 +60,7 @@ export class AuthService implements CanActivate, CanActivateChild {
     this.userIsAdmin.next(false)
     this.token = ""
     setTimeout(() => this.router.navigate(["/login"]), 20)
-  
+
   }
 
   getToken(): string {

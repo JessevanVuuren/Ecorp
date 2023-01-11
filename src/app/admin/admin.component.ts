@@ -1,9 +1,13 @@
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NbDialogService } from '@nebular/theme';
+import { PromoCode } from 'src/models/PromoCode';
 import { Server } from 'src/models/Server.model';
+import { User } from 'src/models/User';
 import { HttpService } from 'src/service/http.service';
+import { PromoCodeService } from 'src/service/promoCode.service';
 import { ServerService } from 'src/service/server.service';
+import { UserService } from 'src/service/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +17,11 @@ import { ServerService } from 'src/service/server.service';
 export class AdminComponent implements OnInit, AfterViewInit {
   @ViewChild("addNewItemForm") ngFormLogin: NgForm
 
-  customServer: Server
+  promoCode: PromoCode[]
   servers: Server[]
+  users: User[]
+
+  customServer: Server
 
   editServerID: number = null
 
@@ -26,11 +33,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
   isPriceValid = true
   error = ""
 
-  constructor(private ser: ServerService, private http:HttpService) { }
+  constructor(private ser: ServerService, private http: HttpService, private promo: PromoCodeService, private userS: UserService) { }
 
   ngOnInit(): void {
+    this.promo.getAllPromoCodes()
     this.ser.getAllServers()
+    this.userS.getAllUsers()
+
+    this.promo.promoCodeSubject.subscribe(p => this.promoCode = p)
+    this.userS.userSubject.subscribe(u => this.users = u)
     this.ser.serversSubject.subscribe(s => this.servers = s)
+
     this.customServer = { id: null, cpu: null, name: null, price: null, ram: null, space: null, stype: null }
   }
 
@@ -53,6 +66,12 @@ export class AdminComponent implements OnInit, AfterViewInit {
   clear() {
     this.ngFormLogin.reset()
     this.editServerID = null
+    this.isNameValid = true
+    this.isCpuValid = true
+    this.isRamValid = true
+    this.isStorageValid = true
+    this.isTypeValid = true
+    this.isPriceValid = true
   }
 
   ngAfterViewInit(): void {
@@ -95,7 +114,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     if (!price) this.isPriceValid = false
     if (!space) this.isStorageValid = false
     if (!stype) this.isTypeValid = false
-  
+
     if (!this.isNameValid || !this.isCpuValid || !this.isRamValid || !this.isStorageValid || !this.isTypeValid || !this.isPriceValid) {
       this.error = "All fields are required"
       return
@@ -104,7 +123,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     const cpuVal = !this.isNumeric(cpu)
     this.isCpuValid = !cpuVal
     if (cpuVal) this.error = "Can only contain numbers"
-    
+
     const priceVal = !this.isNumeric(price)
     this.isPriceValid = !priceVal
     if (priceVal) this.error = "Can only contain numbers"

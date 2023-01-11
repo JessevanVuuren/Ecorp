@@ -1,0 +1,87 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #323259;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0px 10px;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.remove {
+  margin-left: 10px;
+  color: #ff3d71;
+}
+
+.edit {
+  margin-left: 10px;
+}
+
+.icons {
+  display: flex;
+}
+
+.amount {
+  color: #fa0;
+}
+
+.buttonHolder {
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    justify-content: space-between;
+}
+
+.holder {
+      margin: 0px 10px 10px 0px;
+
+ border-radius: 5px;
+    background-color: #323259;   
+}
+
+.inputs {
+    padding-top: 10px;
+    border-radius: 5px;
+    background-color: #323259;
+    display: flex;
+    justify-content: space-between;
+
+    .name {
+        margin-left: 10px;
+        width: 70%;
+    }
+
+    .amount {
+        width: 30%;
+        margin: 0px 10px;
+    }
+}
+
+.popup {
+  background-color: #1b1b38;
+  padding: 10px 10px;
+  width: 250px;
+  border-radius: 10px;
+  h3 {
+    justify-content: center;
+    display: flex;
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .yes {
+    margin-left: 20px;
+  }
+}
+
+.buttons {
+  display: flex;
+
+  button {
+    width: 100%;
+  }
+}

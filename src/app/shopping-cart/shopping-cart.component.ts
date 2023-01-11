@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/models/Cart.model';
+import { Orders } from 'src/models/Orders';
 import { Server } from 'src/models/Server.model';
+import { AuthService } from 'src/service/auth.service';
 import { CartService } from 'src/service/cart.service';
+import { HttpService } from 'src/service/http.service';
 import { ServerService } from 'src/service/server.service';
 
 @Component({
   selector: 'app-shopping-cart',
-  host: { style:"width:100%" },
+  host: { style: "width:100%" },
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit {
   items?: Cart[]
-  servers?:Server[]
+  servers?: Server[]
   total = 0
   vat = 0
   service = 0
 
-  constructor(private cartS: CartService, private serversS: ServerService) { }
+  constructor(private cartS: CartService, private serversS: ServerService, private http: HttpService, private auth: AuthService) { }
 
 
   ngOnInit(): void {
@@ -30,6 +33,29 @@ export class ShoppingCartComponent implements OnInit {
       this.total = 0
       this.calcTotal(items)
     })
+  }
+
+  checkout() {
+    const orders: Orders[] = []
+    this.items.map(cart => {
+      const order: Orders = {
+        "amount": cart.amount,
+        "server": cart.name,
+        "userid": this.auth.getID()
+      }
+
+      orders.push(order)
+    })
+
+    if (orders.length > 0) {
+      this.http.sendData<Orders>("/api/order", orders).subscribe()
+      this.cartS.clearCart()
+      this.total = 0
+      this.vat = 0
+      this.service = 0
+      this.items = []
+      this.servers = []
+    }
   }
 
 

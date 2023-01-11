@@ -1,3 +1,14 @@
-<h1>Welcome: {{userData.name}}</h1>
+<div class="welkom">
 
-<button (click)="logout()" nbButton outline status="info">Logout</button>
+  <h1>Welcome {{userData.name}}</h1>
+  
+  <button (click)="logout()" nbButton outline status="info">Logout</button>
+</div>
+
+<div class="orderHistory">
+
+  <h4>Order history</h4>
+  <div *ngFor="let order of orders">
+    <app-single-order [order]="order"></app-single-order>
+  </div>
+</div>
