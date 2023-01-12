@@ -59,7 +59,6 @@ export class CartService {
 
   setCartAmount(item:Cart, amount:number) {
     let items = this.getItems()
-    console.log(amount)
     items.map((cart:Cart, index:number) => {
       if (item.serverID === cart.serverID) {
         cart.amount = amount
