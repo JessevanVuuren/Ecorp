@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { PromoCode } from "src/models/PromoCode";
 import { HttpService } from "./http.service";
 
@@ -16,6 +16,12 @@ export class PromoCodeService {
       this.promoCodeSubject.next(data)
       this.promoCode = data
     })
+  }
+
+  getAllNames():string[] {
+    const names = []
+    this.promoCode.map(e => names.push(e.name))
+    return names
   }
 
   updatePromo(id: number, name: string, amount: number) {
@@ -40,5 +46,9 @@ export class PromoCodeService {
     this.http.sendData("/api/promocode/new", promo).subscribe(() => {
       this.getAllPromoCodes()
     })
+  }
+
+  checkCode(code:string):Observable<string> {
+    return this.http.getSingleData<string>("/api/promocode/check/" + code)
   }
 }

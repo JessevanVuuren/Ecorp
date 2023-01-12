@@ -57,11 +57,6 @@
     margin-left: 10px;
     width: 70%;
   }
-
-  .amount {
-    width: 30%;
-    margin: 0px 10px;
-  }
 }
 
 .popup {
@@ -87,5 +82,18 @@
 
   button {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .inputs {
+    display: block;
+  }
+
+  .inputField {
+    width: 97%
+  }
+  .buttonHolder {
+    padding: 10px 10px 10px 0px;
   }
 }

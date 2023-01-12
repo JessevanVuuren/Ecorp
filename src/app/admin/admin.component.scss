@@ -64,6 +64,11 @@
   }
 }
 
+.errorText {
+  margin: -10px 0px 10px 0px;
+  color: #ff3d71;
+}
+
 @media only screen and (max-width: 600px) {
   .mainHolder {
     display: block;

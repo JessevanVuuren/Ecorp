@@ -17,4 +17,10 @@ export class ServerService {
       this.servers = data
     })
   }
+
+  getServerNames():string[] {
+    const names = []
+    this.servers.map(e => names.push(e.name))
+    return names
+  }
 }

@@ -43,6 +43,10 @@
   flex: 1;
 }
 
+.promoCode {
+  margin: 0px 0px 3px 0px;
+}
+
 @media only screen and (max-width: 650px) {
   .main {
     display: flex;
@@ -53,8 +57,8 @@
     }
 
     .checkout {
-        order: 1;
-        width: 100%;
+      order: 1;
+      width: 100%;
     }
   }
 }

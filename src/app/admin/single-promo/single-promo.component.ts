@@ -19,6 +19,8 @@ export class SinglePromoComponent {
   isNameValid = true
   isAmountValid = true
 
+  errorCode = ""
+
   doEdit = false
 
   constructor(@Optional() private dialogService: NbDialogService, private http: HttpService, private promoS: PromoCodeService) { }
@@ -45,6 +47,7 @@ export class SinglePromoComponent {
       const name = this.ngFormLogin.value.name
       const amount = this.ngFormLogin.value.amount
 
+      this.errorCode = ""
       this.isNameValid = true
       this.isAmountValid = true
       
@@ -53,6 +56,16 @@ export class SinglePromoComponent {
       
       const amountVal = !this.isNumeric(amount)
       this.isAmountValid = !amountVal
+
+      if (this.promoS.getAllNames().includes(name)) {
+        this.errorCode = "Name already in use"
+        this.isNameValid = false
+      }
+
+      if (this.isAmountValid && (amount > 100 || amount < 1)) {
+        this.isAmountValid = false
+        this.errorCode = "Promo range 1 - 100"
+      }
       
       if (!this.isNameValid || !this.isAmountValid) return
       else {
@@ -67,6 +80,7 @@ export class SinglePromoComponent {
 
   clear() {
     this.ngFormLogin.reset()
+    this.errorCode = ""
     this.doEdit = false
   }
 }

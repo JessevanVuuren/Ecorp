@@ -49,7 +49,7 @@
       <input name="price" required class="inputField" nbInput fullWidth [status]="isPriceValid ? 'basic' : 'danger'"
         placeholder="Price of server, p/m" [ngModel]="price.value" required #price="ngModel">
 
-      <p>{{error}}</p>
+      <p class="errorText">{{error}}</p>
 
       <div class="buttonHolder">
         <button nbButton hero status="primary">{{editServerID !== null ? "Update server" : "CREATE SERVER"}}</button>

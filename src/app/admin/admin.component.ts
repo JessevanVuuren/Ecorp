@@ -115,6 +115,12 @@ export class AdminComponent implements OnInit, AfterViewInit {
     if (!space) this.isStorageValid = false
     if (!stype) this.isTypeValid = false
 
+    if (this.ser.getServerNames().includes(name)) {
+      this.error = "Name already in use"
+      this.isNameValid = false
+      return
+    }
+
     if (!this.isNameValid || !this.isCpuValid || !this.isRamValid || !this.isStorageValid || !this.isTypeValid || !this.isPriceValid) {
       this.error = "All fields are required"
       return

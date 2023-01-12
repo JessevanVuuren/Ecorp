@@ -45,7 +45,9 @@
           #amount="ngModel">
 
       </div>
-      
+
+      <p *ngIf="errorCode !== ''" class="errorText">{{errorCode}}</p>
+
       <div class="buttonHolder">
         <button nbButton outline status="primary">{{make ? "Create" : "Update"}}</button>
         <button nbButton outline (click)="clear()" type="button" status="danger">Clear</button>

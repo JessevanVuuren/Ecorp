@@ -18,6 +18,7 @@ export class SingleUserComponent {
   @Input("user") user: User
 
   doEdit = false
+  errorCode = ""
 
   constructor(@Optional() private dialogService: NbDialogService, private http: HttpService, private userS: UserService) { }
 
