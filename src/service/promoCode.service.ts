@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { PromoCode } from "src/models/PromoCode";
 import { HttpService } from "./http.service";
+import { Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
 export class PromoCodeService {

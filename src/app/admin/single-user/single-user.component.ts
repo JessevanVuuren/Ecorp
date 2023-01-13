@@ -1,11 +1,9 @@
 import { Component, Input, Optional, TemplateRef, ViewChild } from '@angular/core';
-import { ServerService } from 'src/service/server.service';
 import { HttpService } from 'src/service/http.service';
+import { UserService } from 'src/service/user.service';
 import { NbDialogService } from '@nebular/theme';
-import { PromoCodeService } from 'src/service/promoCode.service';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/models/User';
-import { UserService } from 'src/service/user.service';
 
 
 @Component({

@@ -1,12 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Cart } from 'src/models/Cart.model';
-import { Orders } from 'src/models/Orders';
-import { Server } from 'src/models/Server.model';
+import { PromoCodeService } from 'src/service/promoCode.service';
+import { ServerService } from 'src/service/server.service';
 import { AuthService } from 'src/service/auth.service';
 import { CartService } from 'src/service/cart.service';
 import { HttpService } from 'src/service/http.service';
-import { PromoCodeService } from 'src/service/promoCode.service';
-import { ServerService } from 'src/service/server.service';
+import { Server } from 'src/models/Server.model';
+import { Cart } from 'src/models/Cart.model';
+import { Orders } from 'src/models/Orders';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,13 +19,13 @@ export class ShoppingCartComponent implements OnInit {
   promoAdded = false
   promoResponse = ""
 
-  items?: Cart[]
   servers?: Server[]
+  items?: Cart[]
+  service = 0
   total = 0
   vat = 0
-  service = 0
 
-  constructor(private cartS: CartService, private serversS: ServerService, private http: HttpService, private auth: AuthService, private promo: PromoCodeService) { }
+  constructor(private cartS: CartService, private http: HttpService, private auth: AuthService, private promo: PromoCodeService) { }
 
 
   ngOnInit(): void {
@@ -85,6 +85,8 @@ export class ShoppingCartComponent implements OnInit {
       this.service = 0
       this.items = []
       this.servers = []
+
+      this.deletePromo()
     }
   }
 

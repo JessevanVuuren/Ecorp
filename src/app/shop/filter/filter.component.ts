@@ -7,13 +7,10 @@ import { Component, Output, ViewChild, EventEmitter } from '@angular/core'
 })
 export class FilterComponent {
 
-  @ViewChild('autoInput') input: Event
-
-
   @Output("searchQuery") parentFun: EventEmitter<any> = new EventEmitter();
+  @ViewChild('autoInput') input: Event
 
   updateText() {
     this.parentFun.emit(this.input)
   }
-
 }

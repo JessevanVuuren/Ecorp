@@ -1,7 +1,7 @@
+import { ServerService } from 'src/service/server.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Server } from 'src/models/Server.model';
-import { ServerService } from 'src/service/server.service';
 
 @Component({
   selector: 'app-shop',

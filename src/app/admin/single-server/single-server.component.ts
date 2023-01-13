@@ -1,8 +1,8 @@
 import { Component, Input, EventEmitter, Output, Optional, TemplateRef } from '@angular/core';
+import { ServerService } from 'src/service/server.service';
+import { HttpService } from 'src/service/http.service';
 import { NbDialogService } from '@nebular/theme';
 import { Server } from 'src/models/Server.model';
-import { HttpService } from 'src/service/http.service';
-import { ServerService } from 'src/service/server.service';
 
 @Component({
   selector: 'app-single-server',

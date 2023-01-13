@@ -10,7 +10,6 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate:[AuthService], canActivateChild:[AuthService], children: [
-  // { path: '', component: HomeComponent, children: [
     { path: 'shop', component: ShopComponent},
     { path: 'shopping-cart', component: ShoppingCartComponent },
     { path: 'admin', component: AdminComponent, canActivate: [AuthService] },

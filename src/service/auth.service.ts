@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { BehaviorSubject, Observable, tap } from "rxjs";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthResponse } from "../models/AuthResponse.model";
-import { JwtToken } from "../models/jwtToken.model";
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Observable, tap } from "rxjs";
+import { JwtToken } from "../models/jwtToken.model";
+import { Injectable } from "@angular/core";
 
 
 const BASE_URL = environment.apiURL + "/api"

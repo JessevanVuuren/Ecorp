@@ -1,9 +1,8 @@
-import { Component, Input, EventEmitter, Output, Optional, TemplateRef, ViewChild } from '@angular/core';
-import { ServerService } from 'src/service/server.service';
+import { Component, Input, Optional, TemplateRef, ViewChild } from '@angular/core';
+import { PromoCodeService } from 'src/service/promoCode.service';
 import { HttpService } from 'src/service/http.service';
 import { PromoCode } from 'src/models/PromoCode';
 import { NbDialogService } from '@nebular/theme';
-import { PromoCodeService } from 'src/service/promoCode.service';
 import { NgForm } from '@angular/forms';
 
 @Component({

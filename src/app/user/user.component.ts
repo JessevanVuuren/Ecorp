@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { JwtToken } from 'src/models/jwtToken.model';
-import { Orders } from 'src/models/Orders';
 import { AuthService } from 'src/service/auth.service';
 import { HttpService } from 'src/service/http.service';
+import { JwtToken } from 'src/models/jwtToken.model';
+import { Component, OnInit } from '@angular/core';
+import { Orders } from 'src/models/Orders';
 
 @Component({
   selector: 'app-user',

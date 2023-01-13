@@ -1,7 +1,7 @@
+import { HttpService } from "./http.service";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { User } from "src/models/User";
-import { HttpService } from "./http.service";
 
 @Injectable({providedIn: 'root'})
 export class UserService {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Cart } from 'src/models/Cart.model';
-import { Server } from 'src/models/Server.model';
 import { CartService } from 'src/service/cart.service';
+import { Server } from 'src/models/Server.model';
+import { Cart } from 'src/models/Cart.model';
 
 @Component({
   selector: 'app-server-card',
@@ -11,9 +11,10 @@ import { CartService } from 'src/service/cart.service';
 export class ServerCardComponent implements OnInit {
   @Input("server") server?: Server;
   @Input("demo") demo?: boolean = false
+  
   inShoppingCart = false
-  amount = 0;
   cartItem: Cart
+  amount = 0;
 
   constructor(private cart: CartService) { }
 
