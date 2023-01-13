@@ -8,16 +8,14 @@ import { Observable } from "rxjs";
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   public url = environment.apiURL
-  AuthKey?: string
-  constructor(private http: HttpClient, private auth: AuthService) {
-    this.AuthKey = this.auth.token
-  }
+
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   getHeaders(): HttpHeaders {
     return new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
-      .set("Authorization", "Bearer " + this.AuthKey);
+      .set("Authorization", "Bearer " + this.auth.getToken());
   }
 
   public getData<T>(path: String): Observable<Array<T>> {
